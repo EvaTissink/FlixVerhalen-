@@ -4,12 +4,13 @@ body {
   font-size: 0.8em;
   color: #444;
   line-height: 1.5em;
-  background-color: #FFF;
+  background-color: #fff;
   margin: 0;
 }
 
 h1 {
   color: #444;
+  font-size: 2em;
 }
 
 h2, h3, h4 {
@@ -23,14 +24,18 @@ a {
 
 main {
   margin: auto;
-  margin-top: 8em;
+  margin-top: 6em;
+}
+
+article p {
+  color: #fff;
 }
 
 /* __________________________HEADER__________________________ */
 
 nav {
   background-color: #73d700;
-  height: 6em;
+  height: 4em;
   width: 100%;
   color: #444;
   position: fixed;
@@ -40,13 +45,13 @@ nav {
   z-index: 200;
 }
 
-li a img {
-  width: 10em;
+nav li a img {
+  width: 9em;
 }
 
 nav ul {
   margin: 0 auto;
-  width:  80vw;
+  width: 80vw;
   display: flex;
   justify-content: space-between;
   list-style-type: none;
@@ -54,10 +59,10 @@ nav ul {
 }
 
 nav ul li {
-  margin-top: 2em;
+  margin-top: 1em;
 }
 
-body>header li:first-child {
+nav ul li:first-child {
   margin-right: auto;
 }
 
@@ -70,6 +75,7 @@ nav>ul li a:first-child {
 
 nav>ul li:nth-of-type(2) a, nav>ul li:nth-of-type(3) a {
   visibility: hidden;
+  transition: 0.3s;
 }
 
 nav>ul li a::before {
@@ -92,9 +98,11 @@ nav>ul li:last-of-type a::before {
   margin-top: -0.5em;
 }
 
-body>header li a:hover {
+nav ul li a:hover {
   cursor: pointer;
-  color: black;
+  text-decoration: underline;
+  /* font-size: 130%; */
+  transition: 0.3s;
 }
 
 /* __________________________CAROUSEL__________________________ */
@@ -103,14 +111,15 @@ body>header li a:hover {
 
 main>section:first-of-type {
   width: 80vw;
-  height: 60vh;
+  height: 280vh;
   margin: 0 auto;
 }
 
 main>section:first-of-type>div:first-of-type {
   width: 80vw;
-  height: 45vh;
+  height: 50vh;
   margin: 0 auto;
+  margin-bottom: 3em;
   position: relative;
 }
 
@@ -121,7 +130,7 @@ main>section:first-of-type>h1 {
 main>section:first-of-type>div div article {
   background-color: #fff;
   width: 80vw;
-  height: 42vh;
+  height: 50vh;
   margin: 0 auto;
   position: absolute;
   border-radius: 0.5em;
@@ -129,76 +138,78 @@ main>section:first-of-type>div div article {
   transition: 0.5s ease-in-out;
 }
 
-main>section:first-of-type div div article:hover,
-main>section:first-of-type>div:last-of-type article:hover {
+main>section:first-of-type div div article:hover, main>section:first-of-type>div:last-of-type article:hover {
   /* Overlay maken */
   transition: 0.3s ease;
 }
 
-main>section:first-of-type>div div article header h2,
-main>section:nth-of-type(3)>article header h2 {
+main>section:first-of-type>div div article header h2, main>section:nth-of-type(3)>article header h2, main>section:first-of-type>div article header h2 {
   text-align: center;
   margin-top: 5em;
 }
 
-/* Verhalen voor naast het carousel voor het medium en grote scherm */
+/* Verhalen voor naast het carousel voor het medium en grote scherm, onder het carousel op klein scherm */
+
 main>section:first-of-type>div:last-of-type {
-  display: none;
   background-color: #fff;
   width: 80vw;
-  height: 42vh;
+  height: 50vh;
 }
 
-main>section:first-of-type>div article {
+main>section:first-of-type>div article, main>section:nth-of-type(3)>article {
+  background-color: #fff;
+  width: 80vw;
+  height: 50vh;
+  position: relative;
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-color: #fff;
   border-radius: 0.5em;
   border: 0.06em solid #73d700;
-  transition: 0.5s ease-in-out;
+  margin-bottom: 2em;
+  transition: 0.3s ease;
 }
 
 /* Centreren content in de articles */
-main>section:first-of-type>section article header,
-main>section:first-of-type>section article footer,
-main>section>div div.mySlides article header,
-main>section>div div.mySlides article footer,
-main>section article header,
-main>section article footer {
-  position: relative;
-  z-index: 5;
-  text-align: center;
-  border: 0.1em solid red;
-  display: flex;
-  margin: 0 auto;
-}
 
-main>section article header {
+article header, article footer {
   position: relative;
   z-index: 5;
   text-align: center;
-  border: 0.1em solid red;
+  display: flex;
   margin: 0 auto;
 }
 
 /* Afbeelding articles */
-main>section>article img,
-section:first-of-type>div div article img,
-main>section:first-of-type>div:last-of-type article img {
+
+main>section article img {
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
+  top: 0px;
+  left: 0px;
   z-index: 1;
+  border-radius: 0.5em;
+}
+
+/* Ruimte tussen de leestijd en likes */
+
+main>section article footer p:first-of-type {
+  margin-right: 1em;
 }
 
 /* Navigatie carousel */
+
 .bolletjes {
   position: absolute;
   z-index: 150;
+  margin-left: 0;
+  margin-right: 0;
+  width: auto;
+  height: auto;
+  bottom: 0.5em;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .bol1, .bol2, .bol3, .bol4 {
@@ -209,7 +220,7 @@ main>section:first-of-type>div:last-of-type article img {
   background-color: lightgray;
   border-radius: 50%;
   display: inline-block;
-  transition: background-color 0.6s ease;
+  transition: 0.6s ease;
 }
 
 .bol1:hover, .bol2:hover, .bol3:hover, .bol4:hover {
@@ -248,48 +259,167 @@ main>section:nth-of-type(2) {
   margin: 0 auto;
 }
 
-main>section:nth-of-type(2)>h1 {
-  font-size: 2em;
-}
-
 main>section:nth-of-type(2)>span {
   height: 1em;
   width: 1em;
 }
 
+main>section fieldset {
+  border-style: none;
+  border-radius: 0.09em;
+}
+
+main>section fieldset:last-of-type input {
+  display: inline-flex;
+  justify-content: space-around;
+  margin: 0 1em;
+}
+
+/* gemaakt met https://www.cssportal.com/style-input-range/ */
+
+input[type=range] {
+  height: 26px;
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 100%;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 20px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 3px #D6D6D6;
+  background: #E3E3E3;
+  border-radius: 14px;
+  border: 0px solid #E0E0E0;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px #000000;
+  border: 0px solid #000000;
+  height: 20px;
+  width: 40px;
+  border-radius: 12px;
+  background: #73D700;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: 0px;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #E3E3E3;
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 20px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 3px #D6D6D6;
+  background: #E3E3E3;
+  border-radius: 14px;
+  border: 0px solid #E0E0E0;
+}
+
+input[type=range]::-moz-range-thumb {
+  box-shadow: 0px 0px 0px #000000;
+  border: 0px solid #000000;
+  height: 20px;
+  width: 40px;
+  border-radius: 12px;
+  background: #73D700;
+  cursor: pointer;
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 20px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+  background: #E3E3E3;
+  border: 0px solid #E0E0E0;
+  border-radius: 28px;
+  box-shadow: 1px 1px 3px #D6D6D6;
+}
+
+input[type=range]::-ms-fill-upper {
+  background: #E3E3E3;
+  border: 0px solid #E0E0E0;
+  border-radius: 28px;
+  box-shadow: 1px 1px 3px #D6D6D6;
+}
+
+input[type=range]::-ms-thumb {
+  border-radius: 12px;
+  margin-top: 1px;
+  box-shadow: 0px 0px 0px #000000;
+  border: 0px solid #000000;
+  height: 20px;
+  width: 40px;
+  background: #73D700;
+  cursor: pointer;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+  background: #E3E3E3;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+  background: #E3E3E3;
+}
+
+/* input[type=radio] {
+
+} */
+
 /* __________________________ALLE VERHALEN__________________________ */
 
 main>section:nth-of-type(3) {
   width: 80vw;
-  height: 50vh;
+  height: 66vh;
   margin: 0 auto;
+  margin-top: 8em;
 }
 
-main>section:nth-of-type(3)>article {
+/* main>section:nth-of-type(3)>article {
   background-color: #fff;
   width: 80vw;
-  height: 42vh;
+  height: 50vh;
   position: relative;
+  position: relative;
+  display: flex;
+  flex-direction: column;
   border-radius: 0.5em;
   border: 0.06em solid #c8c8c8;
   margin-bottom: 2em;
   transition: 0.3s ease;
-}
-
+} */
 
 /* __________________________FOOTER__________________________ */
 
 section:last-of-type>footer {
-  height: 5em;
+  height: 3.5em;
   width: 100%;
-  margin-top: 90em;
+  margin-top: 68em;
+  bottom: 0;
   display: block;
   background-color: #73d700;
 }
 
 section:last-of-type>footer h3 {
   text-align: center;
-  padding-top: 1em;
+  padding-top: 0.8em;
   font-weight: 400;
   color: #fff;
 }
@@ -298,7 +428,31 @@ section:last-of-type>footer h3 {
 
 /* Medium scherm */
 
-@media (min-width: 800px) {
+@media (min-width: 500px) {
+  main>section:first-of-type>div article, main>section:nth-of-type(3)>article {
+    width: 80vw;
+    height: 60vh;
+  }
+  main>section:first-of-type {
+    height: 330vh;
+  }
+  main>section:first-of-type>div:first-of-type {
+    width: 80vw;
+    height: 60vh;
+  }
+  main>section:first-of-type>div div article {
+    width: 80vw;
+    height: 60vh;
+  }
+  section:last-of-type>footer {
+    margin-top: 88em;
+  }
+}
+
+@media (min-width: 700px) {
+  main {
+    margin-top: 4em;
+  }
   /* Navbar */
   nav>a {
     font-size: 1.2em;
@@ -308,8 +462,8 @@ section:last-of-type>footer h3 {
   nav>ul li:nth-of-type(2) a, nav>ul li:nth-of-type(3) a {
     visibility: visible;
     transition: 0.5s ease-in-out;
+    margin-right: 2em;
   }
-
   nav>ul li:nth-of-type(2) a {
     margin-right: 8em;
   }
@@ -319,51 +473,60 @@ section:last-of-type>footer h3 {
   /* Gehele teaser met carousel en 4 verhalen ernaast */
   main>section:first-of-type {
     width: 80vw;
+    height: 174vh;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 3fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 11vh 73vh 73vh;
   }
   /* Het hele carousel */
   main>section:first-of-type>div:first-of-type {
     width: 40vw;
-    height: 34vh;
+    height: 39vh;
     grid-row: 2/3;
     grid-column: 1/2;
   }
   main>section:first-of-type>h1 {
-    grid-row: 1/3;
-    grid-column: 1/3;
+    /* grid-row: 1/3; */
+    grid-column: 1/2;
+  }
+  main>section:first-of-type>div:first-of-type {
+    width: 100%;
   }
   main>section:first-of-type>div div {
-    width: 36vw;
-    height: 34vh;
     grid-row: 2/3;
     grid-column: 1/2;
+  }
+  main>section:first-of-type>div div.bolletjes {
+    width: auto;
+    height: auto;
+    bottom: -13em;
   }
   main>section:first-of-type>div div article {
-    width: 36vw;
-    height: 34vh;
+    width: 80vw;
+    height: 70vh;
     grid-row: 2/3;
     grid-column: 1/2;
   }
+  .bolletjes {
+    bottom: -0.7em;
+  }
   /* Verhalen naast het carousel */
-main>section:first-of-type>div:last-of-type {
-    width: 40vw;
-    height: 34vh;
-    grid-row: 2/3;
-    grid-column: 3/2;
+  main>section:first-of-type>div:last-of-type {
+    width: 100%;
+    height: 100%;
+    grid-row: 3/3;
+    grid-column: 1/2;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-row-gap: 1em;
     grid-column-gap: 1em;
   }
-main>section:first-of-type>div:last-of-type article {
-    width: 19vw;
-    height: 16vh;
+  main>section:first-of-type>div:last-of-type article {
+    width: 39vw;
+    height: 40vh;
   }
-
   /* Filters */
   form {
     display: grid;
@@ -384,19 +547,26 @@ main>section:first-of-type>div:last-of-type article {
   }
   main>section:nth-of-type(2)>form fieldset:nth-of-type(2) {
     grid-row: 2/2;
-        width: 35vw;
+    width: 100%;
   }
   /*  Alle verhalen */
   main>section:nth-of-type(3) {
+    width: 80vw;
+    height: 44vh;
+    margin-left: auto;
+    margin-right: auto;
     display: grid;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
-  }
-  main>section:nth-of-type(3)>article {
-    width: 38vw;
-    height: 34vh;
     grid-row-gap: 1em;
     grid-column-gap: 1em;
+  }
+  main>section:first-of-type>div article, main>section:nth-of-type(3)>article {
+    margin-bottom: 0;
+  }
+  main>section:nth-of-type(3)>article {
+    width: 39vw;
+    height: 40vh;
   }
   /* Footer */
   section:last-of-type>footer {
@@ -404,11 +574,137 @@ main>section:first-of-type>div:last-of-type article {
   }
 }
 
+@media (min-width: 850px) {
+  main>section:first-of-type {
+    width: 80vw;
+    height: 65vh;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 11vh 50vh;
+  }
+  /* Het hele carousel */
+  main>section:first-of-type>div:first-of-type {
+    width: 40vw;
+    height: 39vh;
+    grid-row: 2/2;
+    grid-column: 1/2;
+  }
+  main>section:first-of-type>h1 {
+    /* grid-row: 1/3; */
+    grid-column: 1/2;
+  }
+  main>section:first-of-type>div div {
+    grid-row: 2/3;
+    grid-column: 1/2;
+  }
+  main>section:first-of-type>div div.bolletjes {
+    bottom: -4em;
+  }
+  main>section:first-of-type>div div article {
+    width: 38vw;
+    height: 50vh;
+    grid-row: 2/3;
+    grid-column: 1/2;
+  }
+  /* Verhalen naast het carousel */
+  main>section:first-of-type>div:last-of-type {
+    width: 100%;
+    height: 100%;
+    grid-row: 2/3;
+    grid-column: 2/2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-row-gap: 1em;
+    grid-column-gap: 1em;
+  }
+  main>section:first-of-type>div article, main>section:nth-of-type(3)>article {
+    margin-bottom: 0;
+  }
+  main>section:first-of-type>div:last-of-type article {
+    width: 19vw;
+    height: 23.5vh;
+  }
+  main>section:first-of-type>div article header h2 {
+    margin-top: 2em;
+  }
+  /* Filters */
+  form {
+    display: grid;
+    grid-column: 1/3;
+  }
+  main>section:nth-of-type(2) {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 1em;
+    grid-column-gap: 1em;
+  }
+  main>section:nth-of-type(2)>h1 {
+    grid-row: 1/2;
+    grid-column: 1/3;
+  }
+  main>section:nth-of-type(2)>form fieldset:first-of-type {
+    grid-row: 2/2;
+    width: 35vw;
+  }
+  main>section:nth-of-type(2)>form fieldset:nth-of-type(2) {
+    grid-row: 2/2;
+    width: 100%;
+  }
+  /*  Alle verhalen */
+  main>section:nth-of-type(3) {
+    width: 80vw;
+    height: 70vh;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 1em;
+    grid-column-gap: 1em;
+  }
+  main>section:nth-of-type(3)>article {
+    width: 39vw;
+    height: 50vh;
+  }
+}
+
 /* Groot scherm */
 
-@media (min-width: 1200px) {
+@media (min-width: 1000px) {
   /* Footer */
   section:last-of-type>footer {
     margin-top: 20em;
+  }
+  main>section:nth-of-type(3) {
+    width: 80vw;
+    height: 60vh;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  main>section:nth-of-type(3)>article {
+    width: 25vw;
+    height: 42vh;
+  }
+  /* Footer */
+  section:last-of-type>footer {
+    margin-top: 20em;
+  }
+}
+
+@media (min-width: 1100px) {
+  main>section:first-of-type {
+    height: 70vh;
+    grid-template-rows: 11vh 56vh;
+  }
+  main>section:first-of-type>div div article {
+    height: 55.5vh;
+  }
+  main>section:first-of-type>div div.bolletjes {
+    bottom: -7em;
+  }
+  main>section:first-of-type>div:last-of-type article {
+    width: 19vw;
+    height: 26.5vh;
   }
 }
